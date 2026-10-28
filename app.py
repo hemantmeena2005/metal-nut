@@ -559,15 +559,20 @@ def index():
 @app.route("/sample/<defect_type>")
 def get_sample(defect_type):
     from flask import send_file
+    # First look in standalone static/samples folder (for cloud deployments)
+    static_sample = BASE_DIR / "static" / "samples" / f"{defect_type}.png"
+    if static_sample.exists():
+        return send_file(str(static_sample), mimetype="image/png")
+
+    # Fallback to local metal_nut dataset if present
     if defect_type == "good":
         img_dir = BASE_DIR / "metal_nut" / "train" / "good"
     else:
         img_dir = BASE_DIR / "metal_nut" / "test" / defect_type
     
-    candidates = sorted(img_dir.glob("*.png"))
+    candidates = sorted(img_dir.glob("*.png")) if img_dir.exists() else []
     if not candidates:
         return jsonify({"error": f"Sample for {defect_type} not found"}), 404
-    # Pick a good distinct sample (e.g. 000.png)
     return send_file(str(candidates[0]), mimetype="image/png")
 
 @app.route("/predict", methods=["POST"])
