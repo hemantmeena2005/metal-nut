@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Caches & temporary files
+.ipynb_checkpoints/
+*.tmp
+*.log
+
+# Large datasets (download separately from MVTec AD)
+metal_nut/

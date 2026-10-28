@@ -1,0 +1,9 @@
+path: /Users/hemant/Documents/VII/intern/dataset
+train: images/train
+val: images/val
+nc: 4
+names:
+- bent
+- color
+- flip
+- scratch
