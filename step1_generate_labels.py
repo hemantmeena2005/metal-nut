@@ -1,33 +1,4 @@
-"""
-Step 1 – Mask → YOLO Bounding-Box Labels
-=========================================
-Converts MVTec AD binary pixel masks into YOLO-format label files.
-
-Strategy
---------
-* Each *_mask.png is a grayscale image where white pixels (>0) mark the defect.
-* We use OpenCV connected-components so that if one image has TWO separate
-  defect blobs we get TWO bounding boxes (rather than one huge box wrapping
-  empty space between them).
-* Very tiny components (< MIN_AREA_FRAC of the image) are ignored as noise.
-* For the 'flip' class the mask typically covers most of the nut (the whole
-  nut is flipped), so a single large box is expected and correct.
-
-Output directory layout (YOLO convention):
-  labels/
-    bent/       <- .txt files alongside test/bent/ images
-    color/
-    flip/
-    scratch/
-    good_train/ <- empty .txt files (no defect = no boxes)
-    good_test/
-
-YOLO label format (one line per box):
-  <class_id>  <x_center>  <y_center>  <width>  <height>
-  all values normalised to [0, 1] relative to image W x H.
-
-Class map: bent=0, color=1, flip=2, scratch=3
-"""
+"""Convert MVTec AD defect masks into YOLO-format bounding box labels."""
 
 import os
 import cv2
