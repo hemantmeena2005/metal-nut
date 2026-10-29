@@ -1,21 +1,4 @@
-"""
-Step 2 – Dataset Preparation + YOLOv8n Training
-=================================================
-1. Splits the 93 defective images (80 train / 20 val) + good images for negatives
-2. Writes a YOLO dataset.yaml
-3. Trains YOLOv8n at imgsz=320 for 100 epochs (edge-friendly)
-
-Dataset layout expected AFTER this script runs:
-  dataset/
-    images/
-      train/   ← symlinks or copies of PNG images
-      val/
-    labels/
-      train/   ← corresponding .txt label files
-      val/
-
-Class map: 0=bent, 1=color, 2=flip, 3=scratch
-"""
+"""Prepare YOLO dataset splits and train YOLOv8n detector."""
 
 import os, shutil, random, yaml
 from pathlib import Path

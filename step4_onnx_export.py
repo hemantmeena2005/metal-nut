@@ -1,8 +1,4 @@
-"""
-Step 4 – ONNX Export + CPU Inference Benchmark
-===============================================
-Exports best.pt → best.onnx and measures inference time per image.
-"""
+"""Export trained YOLOv8n model to ONNX format and benchmark CPU latency."""
 
 import time, cv2, numpy as np
 from pathlib import Path

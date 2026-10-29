@@ -1,15 +1,4 @@
-"""
-Step 4B – Advanced Inference Optimization & Edge Benchmarking
-=============================================================
-This script explores and benchmarks multiple edge optimization techniques
-for the trained YOLOv8n metal nut defect detector:
-
-1. Baseline ONNX FP32 (Single-thread & Multi-thread)
-2. Graph-optimized ONNX Session (ORT_ENABLE_ALL)
-3. Dynamic INT8 Quantization (QuantizeLinear / MatMulInteger)
-4. End-to-End Latency Breakdown (Pre-processing -> Inference -> Post-processing/NMS)
-5. Multi-resolution Latency Profiling (160x160, 224x224, 320x320)
-"""
+"""Benchmark ONNX graph optimization, dynamic INT8 quantization, and CPU latency."""
 
 import os
 import sys

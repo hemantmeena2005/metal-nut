@@ -1,14 +1,4 @@
-"""
-Step 5 – Improvement Experiment
-================================
-Experiment A (fast): Confidence-threshold sweep on existing best.pt
-  → Find the threshold that maximises F1 on the full test set
-  → No retraining needed; results in ~2 min
-
-Experiment B (model): Train YOLOv8n at imgsz=640 (vs baseline 320)
-  → More pixel detail helps subtle scratches & bends
-  → Run separately via step5_train_640.py
-"""
+"""Run confidence threshold calibration sweep on test set."""
 
 import numpy as np
 from pathlib import Path

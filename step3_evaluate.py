@@ -1,9 +1,4 @@
-"""
-Step 3 – Full Evaluation + Failure Case Analysis
-=================================================
-Runs best.pt on the entire test set, computes per-class metrics,
-then saves annotated images of failure cases (FP + FN).
-"""
+"""Evaluate model on test set and save visual failure overlays."""
 
 import cv2, json, os
 import numpy as np

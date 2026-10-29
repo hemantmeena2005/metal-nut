@@ -1,7 +1,4 @@
-"""
-Experiment B: Train YOLOv8n at imgsz=640 (vs baseline 320)
-Hypothesis: larger input = more pixel detail → better recall on subtle scratches/bends
-"""
+"""Train YOLOv8n detector at 640x640 resolution for comparison."""
 from pathlib import Path
 from ultralytics import YOLO
 
